@@ -5,9 +5,11 @@ import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { useAuth } from "./context/AuthContext";
 
 export default function Home() {
   const { dark } = useContext(ThemeContext);
+  const { isLoggedIn } = useAuth();
   return (
     <div
       className={`relative min-h-screen w-screen px-20 py-10 text-sm max-[800px]:px-16 max-[500px]:px-10 ${
@@ -39,7 +41,8 @@ export default function Home() {
           growth!
         </p>
 
-        <Link href={`/pages/auth`}
+        <Link
+          href={isLoggedIn ? `/pages/dashboard` : `/pages/auth`}
           className={`py-2 px-4 rounded-2xl mt-6 flex gap-2 items-center ${
             dark
               ? "bg-zinc-50 text-black hover:bg-black/15 hover:text-zinc-50"

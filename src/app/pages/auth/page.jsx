@@ -253,7 +253,7 @@ export default function Home() {
         )}
       </div>
       <div className="w-1/2 max-[900px]:w-full flex flex-col items-center justify-center">
-        <Image src={"/standing.svg"} alt="image" width={400} height={950} />
+        {isSignIn ? <Image src={"/standing.svg"} alt="image" width={400} height={950} /> : <Image src={"/standing-2.svg"} alt="image" width={400} height={950} />}
       </div>
     </div>
   );
